@@ -11,6 +11,8 @@ const serverSchema = new mongoose.Schema({
     ref: "Profile",
     required: true,
   },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
 });
 
 // Crear un índice en profileId
