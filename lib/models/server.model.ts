@@ -11,6 +11,7 @@ const serverSchema = new mongoose.Schema({
     ref: "Profile",
     required: true,
   },
+  members: [{ type: mongoose.Schema.Types.ObjectId, ref: "Member" }],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
