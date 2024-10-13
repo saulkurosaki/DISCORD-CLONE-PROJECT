@@ -7,6 +7,7 @@ const profileSchema = new mongoose.Schema({
   imageUrl: { type: String, required: true },
   email: { type: String, required: true },
   servers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Server" }],
+  members: [{ type: mongoose.Schema.Types.ObjectId, ref: "Member" }],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
