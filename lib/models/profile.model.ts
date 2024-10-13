@@ -8,6 +8,7 @@ const profileSchema = new mongoose.Schema({
   email: { type: String, required: true },
   servers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Server" }],
   members: [{ type: mongoose.Schema.Types.ObjectId, ref: "Member" }],
+  channels: [{ type: mongoose.Schema.Types.ObjectId, ref: "Chanel" }],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
