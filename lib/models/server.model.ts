@@ -12,6 +12,7 @@ const serverSchema = new mongoose.Schema({
     required: true,
   },
   members: [{ type: mongoose.Schema.Types.ObjectId, ref: "Member" }],
+  channels: [{ type: mongoose.Schema.Types.ObjectId, ref: "Chanel" }],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
