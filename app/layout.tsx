@@ -3,7 +3,7 @@ import "./globals.css";
 import { Open_Sans } from "next/font/google";
 
 import { ClerkProvider } from "@clerk/nextjs";
-import { ThemeProvider } from "@/components/providers/Theme-Provider";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { cn } from "@/lib/utils";
 
 const font = Open_Sans({ subsets: ["latin"] });
