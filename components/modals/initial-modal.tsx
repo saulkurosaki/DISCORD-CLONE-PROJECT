@@ -55,6 +55,36 @@ const InitialModal = () => {
             always change it later.
           </DialogDescription>
         </DialogHeader>
+
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <div className="space-y-8 px-6">
+              <div className="flex items-center justify-center">
+                TODO: Image Upload
+              </div>
+
+              {/* <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                      Server Name
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        disabled={isLoading}
+                        placeholder="Enter server name "
+                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-black"
+                        {...field}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              /> */}
+            </div>
+          </form>
+        </Form>
       </DialogContent>
     </Dialog>
   );
