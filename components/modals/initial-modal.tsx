@@ -83,6 +83,12 @@ const InitialModal = () => {
                 )}
               />
             </div>
+
+            <DialogFooter className="bg-gray-100 px-6 py-4">
+              <Button variant="primary" disabled={isLoading}>
+                Create
+              </Button>
+            </DialogFooter>
           </form>
         </Form>
       </DialogContent>
