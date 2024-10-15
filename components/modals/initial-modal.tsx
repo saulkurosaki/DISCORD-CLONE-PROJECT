@@ -63,7 +63,7 @@ const InitialModal = () => {
                 TODO: Image Upload
               </div>
 
-              {/* <FormField
+              <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
@@ -81,7 +81,7 @@ const InitialModal = () => {
                     </FormControl>
                   </FormItem>
                 )}
-              /> */}
+              />
             </div>
           </form>
         </Form>
