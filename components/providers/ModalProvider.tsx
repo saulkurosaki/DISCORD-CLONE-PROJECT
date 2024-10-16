@@ -1,5 +1,24 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import CreateServerModal from "../modals/CreateServerModal";
+
 const ModalProvider = () => {
-  return <div>ModalProvider</div>;
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
+  return (
+    <>
+      <CreateServerModal />
+    </>
+  );
 };
 
 export default ModalProvider;
