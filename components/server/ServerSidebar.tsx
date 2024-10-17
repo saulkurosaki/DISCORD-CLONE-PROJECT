@@ -41,9 +41,9 @@ const ServerSidebar = async ({ serverId }: ServerSidebarParams) => {
   const audioChannels = server?.channels.filter(
     (channel) => channel.type === ChannelType.AUDIO
   );
-  //   const videoChannels = server?.channels.filter(
-  //     (channel) => channel.type === ChannelType.VIDEO
-  //   );
+  const videoChannels = server?.channels.filter(
+    (channel) => channel.type === ChannelType.VIDEO
+  );
   //   const members = server?.members.filter(
   //     (member) => member.profileId !== profile.id
   //   );
