@@ -52,9 +52,9 @@ const ServerSidebar = async ({ serverId }: ServerSidebarParams) => {
     return redirect("/");
   }
 
-  //   const role = server?.members.find(
-  //     (member) => member.profileId === profile.id
-  //   )?.role;
+  const role = server?.members.find(
+    (member) => member.profileId === profile.id
+  )?.role;
 
   return <div>ServerSidebar</div>;
 };
