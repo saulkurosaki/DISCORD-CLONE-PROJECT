@@ -8,7 +8,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { ChevronDown, Settings, UserPlus } from "lucide-react";
+import {
+  ChevronDown,
+  PlusCircle,
+  Settings,
+  UserPlus,
+  Users,
+} from "lucide-react";
 
 interface ServerHeaderProps {
   server: ServerWithMembersWithProfiles;
@@ -41,6 +47,18 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
             <Settings className="h-4 w-4 ml-auto" />
           </DropdownMenuItem>
         )}
+        {isAdmin && (
+          <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer">
+            Manage Members
+            <Users className="h-4 w-4 ml-auto" />
+          </DropdownMenuItem>
+        )}
+        {/* {isModerator && (
+          <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer">
+            Create Channel
+            <PlusCircle className="h-4 w-4 ml-auto" />
+          </DropdownMenuItem>
+        )} */}
       </DropdownMenuContent>
     </DropdownMenu>
   );
