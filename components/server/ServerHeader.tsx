@@ -6,12 +6,14 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import {
   ChevronDown,
   PlusCircle,
   Settings,
+  Trash,
   UserPlus,
   Users,
 } from "lucide-react";
@@ -57,6 +59,13 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
           <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer">
             Create Channel
             <PlusCircle className="h-4 w-4 ml-auto" />
+          </DropdownMenuItem>
+        )}
+        {isModerator && <DropdownMenuSeparator />}
+        {isAdmin && (
+          <DropdownMenuItem className="text-rose-500 px-3 py-2 text-sm cursor-pointer">
+            Delete Server
+            <Trash className="h-4 w-4 ml-auto" />
           </DropdownMenuItem>
         )}
       </DropdownMenuContent>
