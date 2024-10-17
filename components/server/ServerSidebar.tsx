@@ -14,26 +14,26 @@ const ServerSidebar = async ({ serverId }: ServerSidebarParams) => {
     return redirect("/");
   }
 
-  //   const server = await db.server.findUnique({
-  //     where: {
-  //       id: serverId,
-  //     },
-  //     include: {
-  //       channels: {
-  //         orderBy: {
-  //           createdAt: "asc",
-  //         },
-  //       },
-  //       members: {
-  //         include: {
-  //           profile: true,
-  //         },
-  //         orderBy: {
-  //           role: "asc",
-  //         },
-  //       },
-  //     },
-  //   });
+  const server = await db.server.findUnique({
+    where: {
+      id: serverId,
+    },
+    include: {
+      channels: {
+        orderBy: {
+          createdAt: "asc",
+        },
+      },
+      members: {
+        include: {
+          profile: true,
+        },
+        orderBy: {
+          role: "asc",
+        },
+      },
+    },
+  });
 
   //   const textChannels = server?.channels.filter(
   //     (channel) => channel.type === ChannelType.TEXT
@@ -48,9 +48,9 @@ const ServerSidebar = async ({ serverId }: ServerSidebarParams) => {
   //     (member) => member.profileId !== profile.id
   //   );
 
-  //   if (!server) {
-  //     return redirect("/");
-  //   }
+  if (!server) {
+    return redirect("/");
+  }
 
   //   const role = server?.members.find(
   //     (member) => member.profileId === profile.id
