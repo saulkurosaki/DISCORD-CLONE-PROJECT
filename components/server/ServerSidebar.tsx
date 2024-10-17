@@ -35,9 +35,9 @@ const ServerSidebar = async ({ serverId }: ServerSidebarParams) => {
     },
   });
 
-  //   const textChannels = server?.channels.filter(
-  //     (channel) => channel.type === ChannelType.TEXT
-  //   );
+  const textChannels = server?.channels.filter(
+    (channel) => channel.type === ChannelType.TEXT
+  );
   //   const audioChannels = server?.channels.filter(
   //     (channel) => channel.type === ChannelType.AUDIO
   //   );
