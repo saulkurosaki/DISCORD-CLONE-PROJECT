@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { ChevronDown, UserPlus } from "lucide-react";
+import { ChevronDown, Settings, UserPlus } from "lucide-react";
 
 interface ServerHeaderProps {
   server: ServerWithMembersWithProfiles;
@@ -33,6 +33,12 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
           <DropdownMenuItem className="text-indigo-600 dark:text-indigo-400 px-3 py-2 text-sm cursor-pointer">
             Invite People
             <UserPlus className="h-4 w-4 ml-auto" />
+          </DropdownMenuItem>
+        )}
+        {isAdmin && (
+          <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer">
+            Server Settings
+            <Settings className="h-4 w-4 ml-auto" />
           </DropdownMenuItem>
         )}
       </DropdownMenuContent>
