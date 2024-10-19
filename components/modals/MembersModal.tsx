@@ -21,7 +21,7 @@ const MembersModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-white text-black overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
             Manage Members
@@ -35,6 +35,11 @@ const MembersModal = () => {
           {server?.members?.map((member) => (
             <div key={member.id} className="flex items-center gap-x-2 mb-6">
               <UserAvatar src={member.profile.imageUrl} />
+              <div className="flex flex-col gap-y-1">
+                <div className="text-xs font-semibold flex items-center">
+                  {member.profile.name}
+                </div>
+              </div>
             </div>
           ))}
         </ScrollArea>
