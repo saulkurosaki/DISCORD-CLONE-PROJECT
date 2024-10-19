@@ -27,6 +27,7 @@ import { Button } from "@/components/ui/button";
 import FileUpload from "@/components/FileUpload";
 import { useRouter } from "next/navigation";
 import { useModal } from "@/hooks/use-modal-store";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "Server name is required." }),
@@ -34,10 +35,11 @@ const formSchema = z.object({
 });
 
 const EditServerModal = () => {
-  const { isOpen, onClose, type } = useModal();
+  const { isOpen, onClose, type, data } = useModal();
   const router = useRouter();
 
   const isModalOpen = isOpen && type === "editServer";
+  const { server } = data;
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -46,6 +48,13 @@ const EditServerModal = () => {
       imageUrl: "",
     },
   });
+
+  useEffect(() => {
+    if (server) {
+      form.setValue("name", server.name);
+      form.setValue("imageUrl", server.imageUrl);
+    }
+  }, [server, form]);
 
   const isLoading = form.formState.isSubmitting;
 
