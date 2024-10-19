@@ -68,10 +68,11 @@ const InviteModal = () => {
           </Label>
           <div className="flex items-center mt-2 gap-x-2">
             <Input
+              disabled={isLoading}
               className="bg-zinc-300/50 border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-black"
               value={inviteUrl}
             />
-            <Button onClick={onCopy} size="icon">
+            <Button disabled={isLoading} onClick={onCopy} size="icon">
               {copied ? (
                 <Check className="w-4 h-4" />
               ) : (
@@ -80,6 +81,8 @@ const InviteModal = () => {
             </Button>
           </div>
           <Button
+            onClick={onNew}
+            disabled={isLoading}
             variant="link"
             size="sm"
             className="text-xs text-zing-500 mt-4"
