@@ -93,13 +93,13 @@ const MembersModal = () => {
                           {/* SubMenu Hover Popup & Content */}
                           <DropdownMenuPortal>
                             <DropdownMenuSubContent>
-                              {/* <DropdownMenuItem>
+                              <DropdownMenuItem>
                                 <Shield className="w-4 h-4 mr-2" />
                                 Guest
                                 {member.role === "GUEST" && (
                                   <Check className="w-4 h-4 ml-auto" />
                                 )}
-                              </DropdownMenuItem> */}
+                              </DropdownMenuItem>
                               {/* <DropdownMenuItem>
                                 <ShieldCheck className="w-4 h-4 mr-2" />
                                 Moderator
