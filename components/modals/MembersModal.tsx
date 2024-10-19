@@ -100,13 +100,13 @@ const MembersModal = () => {
                                   <Check className="w-4 h-4 ml-auto" />
                                 )}
                               </DropdownMenuItem>
-                              {/* <DropdownMenuItem>
+                              <DropdownMenuItem>
                                 <ShieldCheck className="w-4 h-4 mr-2" />
                                 Moderator
                                 {member.role === "MODERATOR" && (
                                   <Check className="w-4 h-4 ml-auto" />
                                 )}
-                              </DropdownMenuItem> */}
+                              </DropdownMenuItem>
                             </DropdownMenuSubContent>
                           </DropdownMenuPortal>
                         </DropdownMenuSub>
