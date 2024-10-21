@@ -3,6 +3,8 @@ import { db } from "@/lib/db";
 import { ChannelType } from "@prisma/client";
 import { redirect } from "next/navigation";
 import ServerHeader from "./ServerHeader";
+import { ScrollArea } from "../ui/scroll-area";
+import ServerSearch from "./ServerSearch";
 
 interface ServerSidebarParams {
   serverId: string;
@@ -60,6 +62,11 @@ const ServerSidebar = async ({ serverId }: ServerSidebarParams) => {
   return (
     <div className="flex flex-col h-full text-primary w-full dark:bg-[#2b2d31] bg-[#f2f3f5]">
       <ServerHeader server={server} role={role} />
+      <ScrollArea className="flex-1 px-3">
+        <div className="mt-2">
+          <ServerSearch />
+        </div>
+      </ScrollArea>
     </div>
   );
 };
