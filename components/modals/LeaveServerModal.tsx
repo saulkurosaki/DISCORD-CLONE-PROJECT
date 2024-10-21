@@ -4,26 +4,22 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
 
 import { useModal } from "@/hooks/use-modal-store";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { Check, Copy, RefreshCw } from "lucide-react";
-import { useOrigin } from "@/hooks/use-origin";
 import { useState } from "react";
 import axios from "axios";
 
 const LeaveServerModal = () => {
-  const { onOpen, isOpen, onClose, type, data } = useModal();
+  const { isOpen, onClose, type, data } = useModal();
 
   const isModalOpen = isOpen && type === "leaveServer";
   const { server } = data;
 
-  const [copied, setCopied] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   return (
@@ -42,7 +38,16 @@ const LeaveServerModal = () => {
           </DialogDescription>
         </DialogHeader>
 
-        <div className="p-6">Leave Server</div>
+        <DialogFooter className="bg-gray-100 px-6 py-4">
+          <div className="flex items-center justify-between w-full">
+            <Button disabled={isLoading} onClick={onClose} variant="ghost">
+              Cancel
+            </Button>
+            <Button disabled={isLoading} onClick={() => {}} variant="primary">
+              Confirm
+            </Button>
+          </div>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
