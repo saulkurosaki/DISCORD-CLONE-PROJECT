@@ -90,15 +90,15 @@ const ServerSidebar = async ({ serverId }: ServerSidebarParams) => {
                   icon: iconMap[channel.type],
                 })),
               },
-              // {
-              //   label: "Voice Channels",
-              //   type: "channel",
-              //   data: audioChannels?.map((channel) => ({
-              //     id: channel.id,
-              //     name: channel.name,
-              //     icon: iconMap[channel.type],
-              //   })),
-              // },
+              {
+                label: "Voice Channels",
+                type: "channel",
+                data: audioChannels?.map((channel) => ({
+                  id: channel.id,
+                  name: channel.name,
+                  icon: iconMap[channel.type],
+                })),
+              },
               // {
               //   label: "Video Channels",
               //   type: "channel",
