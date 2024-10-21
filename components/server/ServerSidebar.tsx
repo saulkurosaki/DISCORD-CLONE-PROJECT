@@ -108,15 +108,15 @@ const ServerSidebar = async ({ serverId }: ServerSidebarParams) => {
                   icon: iconMap[channel.type],
                 })),
               },
-              // {
-              //   label: "Members",
-              //   type: "member",
-              //   data: members?.map((member) => ({
-              //     id: member.id,
-              //     name: member.profile.name,
-              //     icon: roleIconMap[member.role],
-              //   })),
-              // },
+              {
+                label: "Members",
+                type: "member",
+                data: members?.map((member) => ({
+                  id: member.id,
+                  name: member.profile.name,
+                  icon: roleIconMap[member.role],
+                })),
+              },
             ]}
           />
         </div>
