@@ -7,6 +7,7 @@ import { ScrollArea } from "../ui/scroll-area";
 import ServerSearch from "./ServerSearch";
 import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
 import { Separator } from "../ui/separator";
+import ServerSection from "./ServerSection";
 
 interface ServerSidebarParams {
   serverId: string;
