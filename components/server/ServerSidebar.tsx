@@ -117,7 +117,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarParams) => {
                   icon: roleIconMap[member.role],
                 })),
               },
-            ]}\
+            ]}
           />
         </div>
       </ScrollArea>
