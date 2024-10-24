@@ -22,7 +22,7 @@ const roleIconMap = {
   [MemberRole.MODERATOR]: (
     <ShieldCheck className="w-4 h-4 mr-2 text-indigo-500" />
   ),
-  [MemberRole.ADMIN]: <ShieldAlert className="w-4 h-4 mr-2 text-indigo-500" />,
+  [MemberRole.ADMIN]: <ShieldAlert className="w-4 h-4 mr-2 text-rose-500" />,
 };
 
 const ServerSidebar = async ({ serverId }: ServerSidebarParams) => {
@@ -117,7 +117,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarParams) => {
                   icon: roleIconMap[member.role],
                 })),
               },
-            ]}
+            ]}\
           />
         </div>
       </ScrollArea>
