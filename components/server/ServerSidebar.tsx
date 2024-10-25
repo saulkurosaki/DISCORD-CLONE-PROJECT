@@ -127,7 +127,12 @@ const ServerSidebar = async ({ serverId }: ServerSidebarParams) => {
 
         {!!textChannels?.length && (
           <div className="mb-2">
-            <ServerSection />
+            <ServerSection
+              sectionType="channels"
+              channelType={ChannelType.TEXT}
+              role={role}
+              label="Text Channels"
+            />
           </div>
         )}
       </ScrollArea>
