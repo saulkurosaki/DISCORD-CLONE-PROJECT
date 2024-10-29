@@ -129,6 +129,7 @@ model Conversation {
 
   directMessages DirectMessage[]
 
+  @@index([memberOneId])
   @@index([memberTwoId])
 
   @@unique([memberOneId, memberTwoId])
@@ -137,7 +138,7 @@ model Conversation {
 model DirectMessage {
   id String @id @default(uuid())
   content String @db.Text
-  fileUrl String? 
+  fileUrl String? @db.Text
 
   memberId String
   member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
