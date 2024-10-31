@@ -34,7 +34,7 @@ const formSchema = z.object({
 });
 
 const MessageFileModal = () => {
-  const { onOpen, onClose, type, data } = useModal();
+  const { isOpen, onClose, type, data } = useModal();
   const router = useRouter();
 
   const isModalOpen = isOpen && type === "messageFile";
