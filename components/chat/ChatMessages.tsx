@@ -1,8 +1,10 @@
 "use client";
 
+import { Member } from "@prisma/client";
+
 interface ChatMessagesProps {
   name: string;
-  member: string;
+  member: Member;
   chatId: string;
   apiUrl: string;
   socketUrl: string;
