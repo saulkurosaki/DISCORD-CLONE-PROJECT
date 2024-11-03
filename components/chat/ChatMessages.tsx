@@ -3,7 +3,7 @@
 import { Member } from "@prisma/client";
 import ChatWelcome from "./ChatWelcome";
 import { useChatQuery } from "@/hooks/use-chat-query";
-import { Loader2 } from "lucide-react";
+import { Loader2, ServerCrash } from "lucide-react";
 
 interface ChatMessagesProps {
   name: string;
@@ -48,6 +48,18 @@ const ChatMessages = ({
       </div>
     );
   }
+
+  if (status === "error") {
+    return (
+      <div className="flex flex-col flex-1 justify-center items-center">
+        <ServerCrash className="w-7 h-7 text-zinc-500 my-4" />
+        <p className="text-xs text-zinc-500 dark:text-zinc-400">
+          Something went wrong!
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex-1 flex flex-col py-4 overflow-y-auto">
       <div className="flex-1" />
