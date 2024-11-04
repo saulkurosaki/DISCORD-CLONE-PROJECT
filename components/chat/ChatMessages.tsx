@@ -5,6 +5,7 @@ import ChatWelcome from "./ChatWelcome";
 import { useChatQuery } from "@/hooks/use-chat-query";
 import { Loader2, ServerCrash } from "lucide-react";
 import { Fragment } from "react";
+import ChatItem from "./ChatItem";
 
 type MessageWithMemberWithProfile = Message & {
   member: Member & {
@@ -75,7 +76,7 @@ const ChatMessages = ({
         {data?.pages?.map((group, i) => (
           <Fragment key={i}>
             {group.items.map((message: MessageWithMemberWithProfile) => (
-              <div key={message.id}>{message.content}</div>
+              <ChatItem />
             ))}
           </Fragment>
         ))}
