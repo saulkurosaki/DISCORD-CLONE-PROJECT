@@ -1,10 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Member, MemberRole, Profile } from "@prisma/client";
 import UserAvatar from "../UserAvatar";
 import ActionTooltip from "../ActionTooltip";
 import { ShieldAlert, ShieldCheck } from "lucide-react";
 import Image from "next/image";
+import { getFileType } from "@/lib/get-file-type";
 
 interface ChatItemProps {
   id: string;
@@ -39,8 +41,18 @@ const ChatItem = ({
   socketUrl,
   socketQuery,
 }: ChatItemProps) => {
-  const fileType = fileUrl?.split(".").pop();
-  //   console.log("FileType:", fileType);
+  const [fileType, setFileType] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchFileType = async () => {
+      if (fileUrl) {
+        const type = await getFileType(fileUrl);
+        setFileType(type);
+      }
+    };
+
+    fetchFileType();
+  }, [fileUrl]);
 
   const isAdmin = currentMember.role === MemberRole.ADMIN;
   const isModerator = currentMember.role === MemberRole.MODERATOR;
