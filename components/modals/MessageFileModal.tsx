@@ -71,7 +71,7 @@ const MessageFileModal = () => {
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
-            Add and attachment
+            Add an attachment
           </DialogTitle>
           <DialogDescription className="text-center text-zinc-500">
             Send a file as a message
