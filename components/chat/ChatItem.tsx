@@ -16,6 +16,8 @@ import { getFileType } from "@/lib/get-file-type";
 import { cn } from "@/lib/utils";
 
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 
 interface ChatItemProps {
   id: string;
@@ -91,6 +93,10 @@ const ChatItem = ({
   const isPDF = fileType === "pdf" && fileUrl;
   const isImage = !isPDF && fileUrl;
 
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+  };
+
   return (
     <div className="relative group flex items-center hover:bg-black/5 p-4 transition w-full">
       <div className="group flex gap-x-2 items-start w-full">
@@ -127,6 +133,7 @@ const ChatItem = ({
               />
             </a>
           )}
+
           {isPDF && (
             <div className="max-w-[462px] max-h-[250px] relative flex items-center p-2 mt-2 rounded-md bg-background/10">
               <FileIcon className="w-10 h-10 fill-indigo-200 stroke-indigo-400" />
@@ -140,6 +147,7 @@ const ChatItem = ({
               </a>
             </div>
           )}
+
           {!fileUrl && !isEditing && (
             <p
               className={cn(
@@ -155,6 +163,33 @@ const ChatItem = ({
                 </span>
               )}
             </p>
+          )}
+
+          {!fileUrl && isEditing && (
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="flex items-center w-full gap-x-2 pt-2"
+              >
+                <FormField
+                  control={form.control}
+                  name="content"
+                  render={({ field }) => (
+                    <FormItem className="flex-1">
+                      <FormControl>
+                        <div className="relative w-full">
+                          <Input
+                            className="p-2 bg-zinc-200/90 dark:bg-zinc-700/75 border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-zinc-600 dark:text-zinc-200"
+                            placeholder="Edited message"
+                            {...field}
+                          />
+                        </div>
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+              </form>
+            </Form>
           )}
         </div>
       </div>
