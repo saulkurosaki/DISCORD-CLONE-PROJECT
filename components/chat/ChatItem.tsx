@@ -1,5 +1,11 @@
 "use client";
 
+import * as z from "zod";
+import axios from "axios";
+import qs from "query-string";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import { useEffect, useState } from "react";
 import { Member, MemberRole, Profile } from "@prisma/client";
 import UserAvatar from "../UserAvatar";
@@ -8,6 +14,8 @@ import { Edit, FileIcon, ShieldAlert, ShieldCheck, Trash } from "lucide-react";
 import Image from "next/image";
 import { getFileType } from "@/lib/get-file-type";
 import { cn } from "@/lib/utils";
+
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 
 interface ChatItemProps {
   id: string;
@@ -30,6 +38,10 @@ const roleIconMap = {
   ADMIN: <ShieldAlert className="w-4 h-4 ml-2 text-rose-500" />,
 };
 
+const formSchema = z.object({
+  content: z.string().min(1),
+});
+
 const ChatItem = ({
   id,
   content,
@@ -44,6 +56,19 @@ const ChatItem = ({
 }: ChatItemProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      content: content,
+    },
+  });
+
+  useEffect(() => {
+    form.reset({
+      content: content,
+    });
+  }, [content]);
 
   const [fileType, setFileType] = useState<string | null>(null);
 
@@ -138,7 +163,10 @@ const ChatItem = ({
         <div className="hidden group-hover:flex items-center gap-x-2 absolute p-1 -top-2 right-5 bg-white dark:bg-zinc-800 border rounded-sm">
           {canEditMessage && (
             <ActionTooltip label="Edit">
-              <Edit className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition" />
+              <Edit
+                className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition"
+                onClick={() => setIsEditing(true)}
+              />
             </ActionTooltip>
           )}
           <ActionTooltip label="Delete">
