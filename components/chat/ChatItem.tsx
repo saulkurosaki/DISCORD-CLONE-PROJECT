@@ -7,6 +7,7 @@ import ActionTooltip from "../ActionTooltip";
 import { FileIcon, ShieldAlert, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { getFileType } from "@/lib/get-file-type";
+import { cn } from "@/lib/utils";
 
 interface ChatItemProps {
   id: string;
@@ -42,6 +43,8 @@ const ChatItem = ({
   socketQuery,
 }: ChatItemProps) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+
   const [fileType, setFileType] = useState<string | null>(null);
 
   useEffect(() => {
@@ -111,6 +114,17 @@ const ChatItem = ({
                 PDF File
               </a>
             </div>
+          )}
+          {!fileUrl && !isEditing && (
+            <p
+              className={cn(
+                "text-sm text-zinc-600 dark:text-zinc-300",
+                deleted &&
+                  "italic text-zinc-500 dark:text-zinc-400 text-xs mt-1"
+              )}
+            >
+              {content}
+            </p>
           )}
         </div>
       </div>
