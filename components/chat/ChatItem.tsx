@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Member, MemberRole, Profile } from "@prisma/client";
 import UserAvatar from "../UserAvatar";
 import ActionTooltip from "../ActionTooltip";
-import { FileIcon, ShieldAlert, ShieldCheck } from "lucide-react";
+import { Edit, FileIcon, ShieldAlert, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { getFileType } from "@/lib/get-file-type";
 import { cn } from "@/lib/utils";
@@ -133,6 +133,16 @@ const ChatItem = ({
           )}
         </div>
       </div>
+
+      {canDeleteMessage && (
+        <div className="hidden group-hover:flex items-center gap-x-2 absolute p-1 -top-2 right-5 bg-white dark:bg-zinc-800 border rounded-sm">
+          {canEditMessage && (
+            <ActionTooltip label="Edit">
+              <Edit className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition" />
+            </ActionTooltip>
+          )}
+        </div>
+      )}
     </div>
   );
 };
