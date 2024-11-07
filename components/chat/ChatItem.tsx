@@ -41,6 +41,7 @@ const ChatItem = ({
   socketUrl,
   socketQuery,
 }: ChatItemProps) => {
+  const [isEditing, setIsEditing] = useState(false);
   const [fileType, setFileType] = useState<string | null>(null);
 
   useEffect(() => {
