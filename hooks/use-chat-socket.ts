@@ -54,5 +54,32 @@ export const useChatSocket = ({
         };
       });
     });
+
+    // Create messages Socket Watcher
+    socket.on(addKey, (message: MessageWithMemberWithProfile) => {
+      queryClient.setQueryData([queryKey], (oldData: any) => {
+        if (!oldData || !oldData.pages || oldData.pages.length === 0) {
+          return {
+            pages: [
+              {
+                items: [message],
+              },
+            ],
+          };
+        }
+
+        const newData = [...oldData.pages];
+
+        newData[0] = {
+          ...newData[0],
+          items: [message, ...newData[0].items],
+        };
+
+        return {
+          ...oldData,
+          pages: newData,
+        };
+      });
+    });
   }, []);
 };
