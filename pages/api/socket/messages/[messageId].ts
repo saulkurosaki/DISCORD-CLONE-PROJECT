@@ -47,9 +47,9 @@ export default async function handler(
       },
     });
 
-    // if (!server) {
-    //   return res.status(404).json({ error: "Server not found" });
-    // }
+    if (!server) {
+      return res.status(404).json({ error: "Server not found" });
+    }
 
     // const channel = await db.channel.findFirst({
     //   where: {
