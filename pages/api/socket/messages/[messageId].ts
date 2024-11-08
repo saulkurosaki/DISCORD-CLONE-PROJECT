@@ -17,21 +17,21 @@ export default async function handler(
     const { messageId, serverId, channelId } = req.query;
     const { content } = req.body;
 
-    // if (!profile) {
-    //   return res.status(401).json({ error: "Unauthorized" });
-    // }
+    if (!profile) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
 
-    // if (!serverId) {
-    //   return res.status(400).json({ error: "Server ID Missing" });
-    // }
+    if (!serverId) {
+      return res.status(400).json({ error: "Server ID Missing" });
+    }
 
-    // if (!channelId) {
-    //   return res.status(400).json({ error: "Channel ID Missing" });
-    // }
+    if (!channelId) {
+      return res.status(400).json({ error: "Channel ID Missing" });
+    }
 
-    // if (!messageId) {
-    //   return res.status(400).json({ error: "Message ID Missing" });
-    // }
+    if (!messageId) {
+      return res.status(400).json({ error: "Message ID Missing" });
+    }
 
     // const server = await db.server.findFirst({
     //   where: {
