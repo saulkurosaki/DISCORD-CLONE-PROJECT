@@ -66,9 +66,9 @@ export default async function handler(
       (member) => member.profileId === profile.id
     );
 
-    // if (!member) {
-    //   return res.status(404).json({ error: "Member not found" });
-    // }
+    if (!member) {
+      return res.status(404).json({ error: "Member not found" });
+    }
 
     // let message = await db.message.findFirst({
     //   where: {
