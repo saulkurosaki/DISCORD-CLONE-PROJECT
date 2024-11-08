@@ -70,7 +70,7 @@ export default async function handler(
       return res.status(404).json({ error: "Member not found" });
     }
 
-    const message = await db.message.findFirst({
+    let message = await db.message.findFirst({
       where: {
         id: messageId as string,
         channelId: channelId as string,
@@ -97,25 +97,25 @@ export default async function handler(
       return res.status(401).json({ error: "Unauthorized" });
     }
 
-    // if (req.method === "DELETE") {
-    //   message = await db.message.update({
-    //     where: {
-    //       id: messageId as string,
-    //     },
-    //     data: {
-    //       fileUrl: null,
-    //       content: "This message has been deleted.",
-    //       deleted: true,
-    //     },
-    //     include: {
-    //       member: {
-    //         include: {
-    //           profile: true,
-    //         },
-    //       },
-    //     },
-    //   });
-    // }
+    if (req.method === "DELETE") {
+      message = await db.message.update({
+        where: {
+          id: messageId as string,
+        },
+        data: {
+          fileUrl: null,
+          content: "This message has been deleted.",
+          deleted: true,
+        },
+        include: {
+          member: {
+            include: {
+              profile: true,
+            },
+          },
+        },
+      });
+    }
 
     // if (req.method === "PATCH") {
     //   if (!isMessageOwner) {
