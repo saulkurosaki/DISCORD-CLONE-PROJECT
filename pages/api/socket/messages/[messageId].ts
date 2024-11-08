@@ -51,12 +51,12 @@ export default async function handler(
       return res.status(404).json({ error: "Server not found" });
     }
 
-    // const channel = await db.channel.findFirst({
-    //   where: {
-    //     id: channelId as string,
-    //     serverId: serverId as string,
-    //   },
-    // });
+    const channel = await db.channel.findFirst({
+      where: {
+        id: channelId as string,
+        serverId: serverId as string,
+      },
+    });
 
     // if (!channel) {
     //   return res.status(404).json({ error: "Channel not found" });
