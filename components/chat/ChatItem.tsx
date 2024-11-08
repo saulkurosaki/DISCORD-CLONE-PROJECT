@@ -85,6 +85,18 @@ const ChatItem = ({
     fetchFileType();
   }, [fileUrl]);
 
+  useEffect(() => {
+    const handleKeyDown = (event: any) => {
+      if (event.key === "Escape" || event.keyCode === 27) {
+        setIsEditing(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   const isAdmin = currentMember.role === MemberRole.ADMIN;
   const isModerator = currentMember.role === MemberRole.MODERATOR;
   const isOwner = currentMember.id === member.id;
@@ -188,7 +200,13 @@ const ChatItem = ({
                     </FormItem>
                   )}
                 />
+                <Button size="sm" variant="primary">
+                  Save
+                </Button>
               </form>
+              <span className="text-[10px] mt-1 text-zinc-400">
+                Press escape to cancel, enter to save
+              </span>
             </Form>
           )}
         </div>
