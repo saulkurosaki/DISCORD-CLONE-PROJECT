@@ -117,27 +117,27 @@ export default async function handler(
       });
     }
 
-    // if (req.method === "PATCH") {
-    //   if (!isMessageOwner) {
-    //     return res.status(401).json({ error: "Unauthorized" });
-    //   }
+    if (req.method === "PATCH") {
+      if (!isMessageOwner) {
+        return res.status(401).json({ error: "Unauthorized" });
+      }
 
-    //   message = await db.message.update({
-    //     where: {
-    //       id: messageId as string,
-    //     },
-    //     data: {
-    //       content,
-    //     },
-    //     include: {
-    //       member: {
-    //         include: {
-    //           profile: true,
-    //         },
-    //       },
-    //     },
-    //   });
-    // }
+      message = await db.message.update({
+        where: {
+          id: messageId as string,
+        },
+        data: {
+          content,
+        },
+        include: {
+          member: {
+            include: {
+              profile: true,
+            },
+          },
+        },
+      });
+    }
 
     // const updateKey = `chat:${channelId}:messages:update`;
 
