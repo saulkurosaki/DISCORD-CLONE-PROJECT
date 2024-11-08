@@ -84,9 +84,9 @@ export default async function handler(
       },
     });
 
-    // if (!message || message.deleted) {
-    //   return res.status(404).json({ error: "Message not found" });
-    // }
+    if (!message || message.deleted) {
+      return res.status(404).json({ error: "Message not found" });
+    }
 
     // const isMessageOwner = message.memberId === member.id;
     // const isAdmin = member.role === MemberRole.ADMIN;
