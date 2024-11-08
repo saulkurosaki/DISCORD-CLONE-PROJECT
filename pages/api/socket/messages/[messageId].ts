@@ -70,19 +70,19 @@ export default async function handler(
       return res.status(404).json({ error: "Member not found" });
     }
 
-    // let message = await db.message.findFirst({
-    //   where: {
-    //     id: messageId as string,
-    //     channelId: channelId as string,
-    //   },
-    //   include: {
-    //     member: {
-    //       include: {
-    //         profile: true,
-    //       },
-    //     },
-    //   },
-    // });
+    const message = await db.message.findFirst({
+      where: {
+        id: messageId as string,
+        channelId: channelId as string,
+      },
+      include: {
+        member: {
+          include: {
+            profile: true,
+          },
+        },
+      },
+    });
 
     // if (!message || message.deleted) {
     //   return res.status(404).json({ error: "Message not found" });
