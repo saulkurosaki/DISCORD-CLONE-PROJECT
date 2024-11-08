@@ -33,19 +33,19 @@ export default async function handler(
       return res.status(400).json({ error: "Message ID Missing" });
     }
 
-    // const server = await db.server.findFirst({
-    //   where: {
-    //     id: serverId as string,
-    //     members: {
-    //       some: {
-    //         profileId: profile.id,
-    //       },
-    //     },
-    //   },
-    //   include: {
-    //     members: true,
-    //   },
-    // });
+    const server = await db.server.findFirst({
+      where: {
+        id: serverId as string,
+        members: {
+          some: {
+            profileId: profile.id,
+          },
+        },
+      },
+      include: {
+        members: true,
+      },
+    });
 
     // if (!server) {
     //   return res.status(404).json({ error: "Server not found" });
