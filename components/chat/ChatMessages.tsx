@@ -85,17 +85,20 @@ const ChatMessages = ({
 
       {!hasNextPage && <ChatWelcome type={type} name={name} />}
 
-      {/* {hasNextPage && (
+      {hasNextPage && (
         <div className="flex justify-center">
           {isFetchingNextPage ? (
             <Loader2 className="w-6 h-6 text-zinc-500 animate-spin my-4" />
           ) : (
-            <button className="text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 text-xs my-4 transition">
+            <button
+              className="text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 text-xs my-4 transition"
+              onClick={() => fetchNextPage()}
+            >
               Load previous messages
             </button>
           )}
         </div>
-      )} */}
+      )}
       <div className="flex flex-col-reverse mt-auto">
         {data?.pages?.map((group, i) => (
           <Fragment key={i}>
