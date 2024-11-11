@@ -1,4 +1,5 @@
 import ChatHeader from "@/components/chat/ChatHeader";
+import ChatInput from "@/components/chat/ChatInput";
 import ChatMessages from "@/components/chat/ChatMessages";
 import { getOrCreateConversation } from "@/lib/conversation";
 import { currentProfile } from "@/lib/current-profile";
@@ -66,6 +67,14 @@ const MemberIdPage = async ({ params }: MemberIdPageProps) => {
         paramValue={conversation.id}
         socketUrl="/api/socket/direct-messages"
         socketQuery={{
+          conversationId: conversation.id,
+        }}
+      />
+      <ChatInput
+        name={secondMember.profile.name}
+        type="conversation"
+        apiUrl="/api/socket/direct-messages"
+        query={{
           conversationId: conversation.id,
         }}
       />
