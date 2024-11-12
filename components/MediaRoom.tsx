@@ -22,7 +22,7 @@ const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
 
     const name = `${user.firstName} ${user.lastName}`;
 
-    async () => {
+    (async () => {
       try {
         const response = await fetch(
           `/api/livekit?room=${chatId}&username=${name}`
@@ -32,7 +32,7 @@ const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
       } catch (error) {
         console.log(error);
       }
-    };
+    })();
   }, [user?.firstName, user?.lastName, chatId]);
 
   if (token === "") {
