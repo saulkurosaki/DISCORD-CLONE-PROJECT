@@ -1,12 +1,12 @@
 import ChatHeader from "@/components/chat/ChatHeader";
 import ChatInput from "@/components/chat/ChatInput";
 import ChatMessages from "@/components/chat/ChatMessages";
-import MediaRoom from "@/components/MediaRoom";
 import { getOrCreateConversation } from "@/lib/conversation";
-import { currentProfile } from "@/lib/current-profile";
-import { db } from "@/lib/db";
-import { redirectToSignIn } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { db } from "@/lib/db";
+import MediaRoom from "@/components/MediaRoom";
+import { currentProfile } from "@/lib/current-profile";
+import { redirectToSignIn } from "@clerk/nextjs/server";
 
 interface MemberIdPageProps {
   params: {
