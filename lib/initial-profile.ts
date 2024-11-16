@@ -1,3 +1,4 @@
+// @ts-ignore
 import { redirectToSignIn } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
 
