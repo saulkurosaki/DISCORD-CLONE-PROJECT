@@ -1,6 +1,6 @@
 # DISCORD CLONE PROJECT
 
-![alt text](1-Xnip2024-11-19_09-56-06.jpg)
+![alt text](1-Xnip2024-11-19_09-56-06-1.jpg)
 ![alt text](2-Xnip2024-11-19_09-57-30.jpg)
 ![alt text](3-Xnip2024-11-19_09-59-10.jpg)
 ![alt text](4-Xnip2024-11-19_10-00-34.jpg)
