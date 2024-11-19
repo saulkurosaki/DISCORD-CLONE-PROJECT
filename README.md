@@ -1,1 +1,17 @@
 # DISCORD CLONE PROJECT
+
+![alt text](1-Xnip2024-11-19_09-56-06.jpg)
+![alt text](2-Xnip2024-11-19_09-57-30.jpg)
+![alt text](3-Xnip2024-11-19_09-59-10.jpg)
+![alt text](4-Xnip2024-11-19_10-00-34.jpg)
+![alt text](5-Xnip2024-11-19_10-04-15.jpg)
+![alt text](6-Xnip2024-11-19_10-05-35.jpg)
+![alt text](7-Xnip2024-11-19_10-06-10.jpg)
+![alt text](8-Xnip2024-11-19_10-07-26.jpg)
+![alt text](9-Xnip2024-11-19_10-08-56.jpg)
+![alt text](10-Xnip2024-11-19_10-09-19.jpg)
+![alt text](11-Xnip2024-11-19_10-10-19.jpg)
+![alt text](12-Xnip2024-11-19_10-11-37.jpg)
+![alt text](13-Xnip2024-11-19_10-12-19.jpg)
+![alt text](14-Xnip2024-11-19_10-12-38.jpg)
+![alt text](15-Xnip2024-11-19_10-13-02.jpg)
